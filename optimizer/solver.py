@@ -54,12 +54,12 @@ def solve_model(
 
 
     return {
-        "status": LpStatus[result],
+    "status": LpStatus[result],
 
-        "total_cost_bdt": round(
-            model.objective.value() or 0,
-            2
-        ),
+    "total_cost_bdt": round(
+        model.objective.value() or 0,
+        2
+    ),
 
-        "hourly_plan": hourly_plan
-    }
+    "hourly_plan": hourly_plan
+}

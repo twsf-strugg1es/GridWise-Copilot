@@ -1,34 +1,40 @@
 import os
-import time
 
 from dotenv import load_dotenv
-from google import genai
+from openai import OpenAI
 
 
 load_dotenv()
 
-client = genai.Client(
-    api_key=os.getenv("GEMINI_API_KEY")
+
+client = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key=os.getenv("OPENROUTER_API_KEY")
 )
 
 
-def generate_text(prompt: str):
+def generate_text(prompt):
 
-    for attempt in range(3):
+    response = client.chat.completions.create(
 
-        try:
-            response = client.models.generate_content(
-                model="gemini-3.6-flash",
-                contents=prompt
-            )
+        model="qwen/qwen3-8b",
 
-            return response.text
+        messages=[
+            {
+                "role": "system",
+                "content": (
+                    "You are an energy optimization assistant. "
+                    "Always return valid JSON only."
+                )
+            },
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ],
 
-        except Exception as e:
-            print(f"Attempt {attempt + 1} failed:")
-            print(e)
+        temperature=0
+    )
 
-            if attempt < 2:
-                time.sleep(5)
 
-    raise Exception("Gemini unavailable after retries")
+    return response.choices[0].message.content

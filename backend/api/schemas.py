@@ -2,22 +2,36 @@ from pydantic import BaseModel
 from typing import List
 
 
-class HourData(BaseModel):
-    hour: int
-    demand_kwh: float
-    solar_kwh: float
-    tariff_bdt_per_kwh: float
-
-
 class BatteryConfig(BaseModel):
-    capacity_kwh: float
-    initial_energy_kwh: float
-    max_charge_kwh: float
-    max_discharge_kwh: float
+    capacity: float
+    initial: float
+    max_charge: float
+    max_discharge: float
 
 
-class OptimizationRequest(BaseModel):
-    scenario_id: str
-    operator_notes: List[str]
-    hours: List[HourData]
+
+class OptimizeRequest(BaseModel):
+
+    operator_note: str
+
+    demand: List[float]
+
+    solar: List[float]
+
+    tariff: List[float]
+
     battery: BatteryConfig
+
+
+
+class OptimizeResponse(BaseModel):
+
+    status: str
+
+    total_cost_bdt: float
+
+    applied_directives: list
+
+    battery_summary: dict
+
+    hourly_plan: list
