@@ -1,14 +1,16 @@
-fastapi
-uvicorn
-pydantic
+# Pinned on purpose. The Docker fallback image and the judges' local
+# reproduction must build the same tree we tested, and PuLP 4.0 removes
+# PULP_CBC_CMD, which optimizer/solver.py uses.
 
-python-dotenv
+fastapi==0.141.1
+uvicorn[standard]==0.53.0
+pydantic==2.13.5
+python-dotenv==1.2.3
+python-multipart==0.0.32
 
-openai
-httpx
+openai==3.15.0
+httpx==0.28.1
 
-pulp
+pulp==3.3.2
 
-pytest
-
-python-multipart
+pytest==9.1.1
