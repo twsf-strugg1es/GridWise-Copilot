@@ -28,6 +28,9 @@ from optimizer.solver import solve_model
 
 router = APIRouter()
 
+@router.get("/health")
+def health():
+    return {"status": "ok"}
 
 @router.post(
     "/optimize-energy",
