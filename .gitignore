@@ -11,6 +11,7 @@ venv/
 env/
 .venv/
 
+
 # =========================
 # Environment secrets
 # =========================
@@ -30,6 +31,7 @@ env/
 
 .vscode/
 .idea/
+
 
 # =========================
 # OS files
@@ -63,6 +65,14 @@ per1.md
 per2.MD
 PERSON_1_LLM_API_ENGINEER_TASK.md
 PERSON_2_OPTIMIZATION_ENGINEER_TASK.md
+
+
+# =========================
+# Frontend
+# =========================
+
+frontend/node_modules/
+frontend/dist/
 
 
 # =========================
