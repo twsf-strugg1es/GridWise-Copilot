@@ -1,0 +1,74 @@
+# =========================
+# Python
+# =========================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# =========================
+# Environment secrets
+# =========================
+
+.env
+.env.*
+!.env.example
+
+# API keys
+*.key
+*.pem
+
+
+# =========================
+# IDE
+# =========================
+
+.vscode/
+.idea/
+
+# =========================
+# OS files
+# =========================
+
+.DS_Store
+Thumbs.db
+
+
+# =========================
+# Testing
+# =========================
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+
+# =========================
+# Logs
+# =========================
+
+*.log
+
+
+# =========================
+# Hackathon internal files
+# =========================
+
+per1.md
+per2.MD
+PERSON_1_LLM_API_ENGINEER_TASK.md
+PERSON_2_OPTIMIZATION_ENGINEER_TASK.md
+
+
+# =========================
+# Temporary files
+# =========================
+
+*.tmp
+*.bak
+*.swp
